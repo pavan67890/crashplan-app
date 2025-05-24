@@ -3,8 +3,10 @@ import {
   auth, 
   signInWithEmailAndPassword, 
   firebaseSignOut, 
-  onAuthStateChanged 
-} from '../firebaseConfig';
+  onAuthStateChanged,
+  GoogleAuthProvider,
+  signInWithPopup
+} from '../firebaseConfig'; // Make sure these are exported from your firebaseConfig
 import { isUserAdmin } from '../services/adminService';
 
 const AdminContext = createContext();
@@ -87,11 +89,36 @@ export const AdminProvider = ({ children }) => {
     return unsubscribe;
   }, []);
 
+  const loginWithGoogle = async () => {
+    try {
+      setError('');
+      setLoading(true);
+      const provider = new GoogleAuthProvider();
+      const result = await signInWithPopup(auth, provider);
+      const isUserAnAdmin = await checkAdminStatus(result.user);
+      
+      if (!isUserAnAdmin) {
+        await firebaseSignOut(auth);
+        throw new Error('You do not have admin access');
+      }
+      
+      setCurrentUser(result.user);
+      return { success: true };
+    } catch (err) {
+      const errorMessage = err.message || 'Failed to sign in with Google';
+      setError(errorMessage);
+      return { success: false, error: errorMessage };
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const value = {
     currentUser,
     isAuthenticated: !!currentUser && isAdmin,
     isAdmin,
     login,
+    loginWithGoogle,
     logout,
     error,
     loading

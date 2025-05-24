@@ -1,0 +1,113 @@
+.most-viewed-courses-section {
+  padding: 4rem 2rem;
+  background: #f8f9fa;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.most-viewed-courses-section h2 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 2.5rem;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.most-viewed-courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  padding: 0 1rem;
+}
+
+.viewed-course-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.viewed-course-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.viewed-course-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 1rem;
+}
+
+.viewed-course-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.3;
+}
+
+.viewed-course-views {
+  color: #7f8c8d;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.viewed-course-views svg {
+  width: 16px;
+  height: 16px;
+  fill: #7f8c8d;
+}
+
+.explore-btn {
+  display: inline-block;
+  padding: 0.6rem 1.25rem;
+  background: #3498db;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  text-align: center;
+  width: 100%;
+  max-width: 200px;
+  margin-top: auto;
+}
+
+.explore-btn:hover {
+  background: #2980b9;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .most-viewed-courses-section {
+    padding: 2rem 1rem;
+  }
+  
+  .most-viewed-courses-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 0;
+  }
+  
+  .viewed-course-card {
+    padding: 1.25rem;
+  }
+  
+  .explore-btn {
+    width: 100%;
+    max-width: none;
+  }
+}

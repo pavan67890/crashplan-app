@@ -1,0 +1,62 @@
+.save-course-section {
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.save-course-btn {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 300px;
+  margin: 1rem auto;
+  display: block;
+}
+
+.save-course-btn:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+.save-course-btn.saved {
+  background-color: #28a745;
+}
+
+.save-course-btn.saved:hover {
+  background-color: #218838;
+}
+
+.login-prompt {
+  color: #6c757d;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+.error-message-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+}
+
+.error-message-content {
+  color: #dc3545;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  white-space: pre-line;
+}
